@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: first-service
+spec:
+  selector:
+    app: first
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+    

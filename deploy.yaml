@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-rest
+  labels:
+    app: first-s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-s
+  template:
+    metadata:
+      labels:
+        app: first-s
+    spec:
+      containers:
+      - name: first-s
+        image:  darkshark555/first:latest
+        ports:
+          - containerPort: 8080
+        env:
+          - name: DB_HOST
+            value: 127.0.0.1:3306
+          - name: DB_NAME
+            value: dbabc
+          - name: DB_USERNAME
+            value: root
+          - name: DB_PASSWORD
+            value: root
+
+
